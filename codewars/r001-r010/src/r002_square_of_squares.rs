@@ -28,11 +28,6 @@ fn is_square(n: i64) -> bool {
     return n_sqrt * n_sqrt == n;
 }
 
-
-fn main() {
-    println!("Hello, world!");
-}
-
 // Add your tests here.
 // See https://doc.rust-lang.org/stable/rust-by-example/testing/unit_testing.html
 
