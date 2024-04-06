@@ -11,11 +11,11 @@ pub fn process_graph(graph: &DiGraph<usize, ()>) -> () {
         clustering_coefficient += cluster_coefficient(&graph, node);
     }
     let average_cluster_coeficient = clustering_coefficient / graph.node_count() as f64;
-    println!("clustering coeficient: {}", count_triangles(&graph));
+    println!("clustering coefficient: {}", count_triangles(&graph));
 
     let individual_lengths = individual_path_length(&graph);
     let total_avg_path_length: f64 = individual_lengths.iter().map(|(_, length)| length).sum();
-    println!("Average distance: {}", total_avg_path_length);
+    println!("average distance: {}", total_avg_path_length);
 }
 
 fn main() {
