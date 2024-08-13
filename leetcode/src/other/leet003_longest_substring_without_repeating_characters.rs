@@ -1,30 +1,18 @@
 use core::num;
 
 pub fn length_of_longest_substring(s: String) -> i32 {
-    let mut caracteres: Vec<char> = Vec::new();
-    let mut vec_contador: Vec<i32> = Vec::new();
-    let mut contador: i32 = 0;
-    let s_list: Vec<char> = s.chars().collect();
-    if s_list.len() == 1 {
-        return 1;
+    let mut max_len: usize = 0;
+
+    let mut pos: [usize;128] = [0;128];
+    let mut start: usize = 0;
+
+    for (end, ch) in s.chars().enumerate() {
+        start = start.max(pos[ch as usize]);
+        max_len = max_len.max(end-start+1);
+        pos[ch as usize] = end + 1;
     }
 
-    for i in 0..s_list.len() {
-        if caracteres.contains(&s_list[i]) {
-            caracteres.clear();
-            vec_contador.push(contador);
-            contador = 0;
-        }
-        contador += 1;
-        caracteres.push(s_list[i].clone());
-    }
-
-    let max = *vec_contador.iter().max().unwrap_or(&0);
-    for n in vec_contador {
-        print!("\n\n\n\n{}\n\n\n\n", n);
-    }
-    print!("\n\n\n\n{}\n\n\n\n", max);
-    return max;
+    return max_len as i32;
 }
 
 #[cfg(test)]
@@ -36,8 +24,6 @@ mod tests {
         assert_eq!(length_of_longest_substring(String::from("abcabcbb")), 3);
         assert_eq!(length_of_longest_substring(String::from("bbbbb")), 1);
         assert_eq!(length_of_longest_substring(String::from("pwwkew")), 3);
-
-        // TODO Caso de teste ainda não resolvido
         assert_eq!(length_of_longest_substring(String::from("au")), 2);
         assert_eq!(length_of_longest_substring(String::from(" ")), 1);
         assert_eq!(length_of_longest_substring(String::from("c")), 1);
