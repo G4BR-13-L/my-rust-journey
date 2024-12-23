@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+
+  #DATABASE
+  postgres-essencial-backend:
+    container_name: postgres-essencial-backend
+    image: postgres:17
+    networks:
+      - essencial-backend_net
+    ports:
+      - '5453:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - database_essencial-backend:/var/lib/postgresql
+      - database_essencial-backend_data:/var/lib/postgresql/data
+
+networks:
+  essencial-backend_net:
+
+volumes:
+  database_essencial-backend:
+  database_essencial-backend_data:
