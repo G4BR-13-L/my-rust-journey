@@ -1,0 +1,12 @@
+[package]
+name = "game-crud"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+diesel = { version = "2.2.2" , features = ["postgres", "postgres_backend"]}
+diesel_migrations = "2.2.0"
+rocket = { version = "0.5.1" , features = ["json", "serde_json", "default"]}
+rocket_db_pools = { version = "0.2.0" , features = ["sqlx", "sqlx_postgres"]}

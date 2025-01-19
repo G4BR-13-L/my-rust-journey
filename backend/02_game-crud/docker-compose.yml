@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+
+  #DATABASE
+  database:
+    container_name: rust_game_crud
+    image: postgres:14.1
+    networks:
+      - rust_game_crud_net
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=12345678
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=rust_game_crud
+    volumes:
+      - database_rust_game_crud:/var/lib/postgresql
+      - database_rust_game_crud_data:/var/lib/postgresql/data
+
+
+networks:
+  rust_game_crud_net:
+
+volumes:
+  database_rust_game_crud:
+  database_rust_game_crud_data:
+
