@@ -1,0 +1,13 @@
+[package]
+name = "k_means"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+linfa = "0.7.1"
+linfa-clustering = "0.7.1"
+ndarray = "0.16.1"
+rand = "0.9.0"
+rust_tokenizers = "8.1.1"
+stopwords = "0.1.1"
+uuid = "1.14.0"
